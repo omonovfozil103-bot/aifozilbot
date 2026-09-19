@@ -5,16 +5,12 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters, C
 from google import genai
 from gtts import gTTS
 import yt_dlp
-
 # --- API KALITLAR VA SOZLAMALAR ---
 TELEGRAM_BOT_TOKEN = "8993223013:AAE8M2pHVL3xwHPZbZfDuhjBKQrYEDQ32bg"
 GEMINI_API_KEY = "AQ.Ab8RN6Jir4VIR1sge9ZG63HPyLa0_8aRuxpYmCoxAqIq7TBhAA"
-
 ai_client = genai.Client(api_key=GEMINI_API_KEY)
 logging.basicConfig(format="%(asctime)s - %(levelname)s - %(message)s", level=logging.INFO)
-
 user_database = {}
-
 def save_user_info(user):
     user_database[user.id] = {
         "id": user.id,
